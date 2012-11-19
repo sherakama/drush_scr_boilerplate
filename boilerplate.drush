@@ -1,0 +1,17 @@
+<?php
+
+
+function hello_word($args) {
+  var_dump($args);
+  drush_log('Hello World', "ok");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+$args = drush_get_arguments();
+if(function_exists($args[2])) {
+  $args[2]($args);
+  drush_log('completed running', 'ok');
+} else {
+  drush_log('Could not find drush script command', 'error');
+}
